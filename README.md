@@ -31,3 +31,6 @@
 ## 使用素材
 ##### 外部サービス
 - Font Awesome(https://fontawesome.com/)
+
+## 実装機能リスト
+- https://docs.google.com/spreadsheets/d/1vPD083DlMZ-phgDoCyRMLBa0kn6h8f9GQUSLuwno_Y8/edit#gid=885378170
