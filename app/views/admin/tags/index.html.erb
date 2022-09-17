@@ -1,0 +1,33 @@
+<div>
+  <div class="title">
+    <h2>検索タグ一覧・追加</h2>
+  </div>
+
+  <%# タグ新規投稿 %>
+  <%= form_with model: @tag, url: admin_tags_path, method: :post do |f| %>
+    <div class="field">
+      <%= f.text_field :name, placeholder: "新規タグ名" %>
+      <%= f.submit "新規登録", class: "btn btn-success btn-sm" %>
+    </div>
+  <% end %>
+
+  <%# タグ一覧 %>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">登録タグ</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tags.each do |tag| %>
+          <tr>
+            <td><%= tag.name%></td>
+            <td><%= link_to "編集", edit_admin_tag_path(tag.id), class: "btn btn-success btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
