@@ -11,6 +11,47 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <!-- ホーム画面リンク -->
+        <div>
+          <%# <a href="/"></a> %>Tore_Setsu
+        </div>
+        <!-- ログイン状態表示 -->
+        <div>
+          <%# if customer_signed_in? %>
+            <%# xxxxさんはログイン中です %>
+          <%# end %>
+        </div>
+        <!-- ナビゲーションバー -->
+        <div>
+          <ul>
+            <% if customer_signed_in? %>
+              <li>スレッド一覧</li>
+              <li>スレッド投稿</li>
+              <li>マイページ</li>
+              <li>ログアウト</li>
+            <% elsif admin_signed_in? %>
+              <li>スレッド一覧</li>
+              <li>会員一覧</li>
+              <li>タグ一覧</li>
+              <li>ログアウト</li>
+            <% else %>
+              <li>スレッド一覧</li>
+              <li><%= link_to "ログイン", new_customer_session_path %></li>
+              <li><%= link_to "新規登録", new_customer_registration%></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <p>© 2022 Tore_Setsu</p>
+    </footer>
   </body>
 </html>
