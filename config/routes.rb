@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  scope module: :public do
+    root to: 'posts#top'
+
+    post 'post/confirm' => 'post#confirm'
+    resources :posts, only: [:new, :create, :index, :show, :edit, :update]
+  end
+
   namespace :admin do
     resources :tags, only: [:index, :create, :edit, :update]
   end
