@@ -15,22 +15,22 @@
       <nav>
         <%# ホーム画面リンク %>
         <div>
-          <%# <a href="/"></a> %>Tore_Setsu
+          <a href="/">Tore_Setsu</a>
         </div>
 
-        <%# ログイン状態表示 %>
+        <%# ログイン時ユーザー名表示 %>
         <div>
-          <%# if customer_signed_in? %>
-            <%# xxxxさんはログイン中です %>
-          <%# end %>
+          <% if customer_signed_in? %>
+            <b><%= current_customer.user_name %> さんはログイン中です</b>
+          <% end %>
         </div>
 
         <%# ナビゲーションバー %>
         <div>
           <ul>
             <% if customer_signed_in? %>
-              <li>スレッド一覧</li>
-              <li>スレッド投稿</li>
+              <li><%= link_to "スレッド一覧", posts_path %></li>
+              <li><%= link_to "スレッド投稿", new_post_path %></li>
               <li>マイページ</li>
               <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
             <% elsif admin_signed_in? %>
@@ -39,7 +39,7 @@
               <li><%= link_to "タグ一覧", admin_tags_path %></li>
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
             <% else %>
-              <li>スレッド一覧</li>
+              <li><%= link_to "スレッド一覧", posts_path %></li>
               <li><%= link_to "ログイン", new_customer_session_path %></li>
               <li><%= link_to "新規登録", new_customer_registration_path %></li>
             <% end %>
