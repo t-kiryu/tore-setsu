@@ -5,6 +5,11 @@
 
   <div class="form-group">
     <%= form_with model: @post, url: post_confirm_path, method: :post do |f| %>
+
+      <div class="field">
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+
       <div class="field">
         <%= f.text_field :title, placeholder: "スレッドのタイトル" %>
       </div>
