@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'posts#top'
-
+    get   'customers/my_page'         => 'customers#show'
+    get   'customers/infomation/edit' => 'customers#edit'
+    patch 'customers/infomation'      => 'customers#update'
+    get   'customers/unsubscribe'     => 'customers#unsubscribe'
+    patch 'customers/withdrawal'      => 'customers#withdrawal'
     post 'post/confirm' => 'post#confirm'
     resources :posts, only: [:new, :create, :index, :show, :edit, :update]
   end
