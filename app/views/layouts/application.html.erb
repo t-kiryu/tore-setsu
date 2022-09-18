@@ -17,14 +17,14 @@
         <div>
           <%# <a href="/"></a> %>Tore_Setsu
         </div>
-        
+
         <%# ログイン状態表示 %>
         <div>
           <%# if customer_signed_in? %>
             <%# xxxxさんはログイン中です %>
           <%# end %>
         </div>
-        
+
         <%# ナビゲーションバー %>
         <div>
           <ul>
@@ -32,7 +32,7 @@
               <li>スレッド一覧</li>
               <li>スレッド投稿</li>
               <li>マイページ</li>
-              <li>ログアウト</li>
+              <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
             <% elsif admin_signed_in? %>
               <li>スレッド一覧</li>
               <li>会員一覧</li>
