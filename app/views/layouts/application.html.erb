@@ -13,17 +13,19 @@
   <body>
     <header>
       <nav>
-        <!-- ホーム画面リンク -->
+        <%# ホーム画面リンク %>
         <div>
           <%# <a href="/"></a> %>Tore_Setsu
         </div>
-        <!-- ログイン状態表示 -->
+        
+        <%# ログイン状態表示 %>
         <div>
           <%# if customer_signed_in? %>
             <%# xxxxさんはログイン中です %>
           <%# end %>
         </div>
-        <!-- ナビゲーションバー -->
+        
+        <%# ナビゲーションバー %>
         <div>
           <ul>
             <% if customer_signed_in? %>
