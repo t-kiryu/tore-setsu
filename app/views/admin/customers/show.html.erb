@@ -2,6 +2,55 @@
   <div class="title">
     <h2><%= @customer.user_name %>さんの登録内容</h2>
   </div>
-  
-  
+
+  <div class="form">
+    <table>
+      <thead>
+        <th></th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= @customer.last_name %> <%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana%></td>
+        </tr>
+        <tr>
+          <td>ユーザーネーム</td>
+          <td><%= @customer.user_name %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
+          <td>
+            <% if @customer.is_deleted %>
+              <b><%= "退会" %></b>
+            <% else %>
+              <b><%= "有効" %></b>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            スレッド一覧
+            ブックマーク一覧
+            <%= link_to "編集", edit_admin_customer_path, class: "btn btn-success btn-sm" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="action">
+
+    </div>
+  </div>
 </div>

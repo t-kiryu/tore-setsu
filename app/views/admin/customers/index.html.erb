@@ -23,7 +23,13 @@
           <td><%= customers.last_name %> <%= customers.first_name %></td>
           <td><%= link_to customers.user_name, admin_customer_path(customers.id) %></td>
           <td><%= customers.email %></td>
-          <td><%= customers.is_deleted %></td>
+          <td>
+            <% if customers.is_deleted %>
+              <b><%= "退会" %></b>
+            <% else %>
+              <b><%= "有効" %></b>
+            <% end %>
+          </td>
         </tbody>
       <% end %>
     </table>
