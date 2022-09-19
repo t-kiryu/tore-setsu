@@ -21,7 +21,7 @@
         <tbody>
           <td><%= customers.id %></td>
           <td><%= customers.last_name %> <%= customers.first_name %></td>
-          <td><%= link_to @customers.user_name, admin_customer_path(@customers.id) %></td>
+          <td><%= link_to customers.user_name, admin_customer_path(customers.id) %></td>
           <td><%= customers.email %></td>
           <td><%= customers.is_deleted %></td>
         </tbody>

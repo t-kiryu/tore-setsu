@@ -35,7 +35,7 @@
               <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
             <% elsif admin_signed_in? %>
               <li>スレッド一覧</li>
-              <li>会員一覧</li>
+              <li><%= link_to "会員一覧", admin_customers_path %></li>
               <li><%= link_to "タグ一覧", admin_tags_path %></li>
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
             <% else %>
