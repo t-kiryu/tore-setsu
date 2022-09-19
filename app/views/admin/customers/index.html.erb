@@ -1,0 +1,31 @@
+<div>
+  <div class="title">
+    <h2>会員一覧</h2>
+  </div>
+
+  ページネーション
+
+  <div class="form-group">
+    <table>
+      <thead>
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>ユーザーネーム</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+
+      <% @customers.each do |customers| %>
+        <tbody>
+          <td><%= customers.id %></td>
+          <td><%= customers.last_name %> <%= customers.first_name %></td>
+          <td><%= link_to @customers.user_name, admin_customer_path(@customers.id) %></td>
+          <td><%= customers.email %></td>
+          <td><%= customers.is_deleted %></td>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :customers, only: [:index, :show, :edit, :update]
     resources :tags, only: [:index, :create, :edit, :update]
   end
 
