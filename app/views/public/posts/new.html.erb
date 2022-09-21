@@ -1,17 +1,17 @@
 <div>
-  <div class="title">
+  <div class="title mt-4">
     <h2>新規スレッド投稿</h2>
   </div>
 
-  <div class="form-group">
+  <div class="form-group w-50 mt-4">
     <%= form_with model: @post, url: post_confirm_path, method: :post do |f| %>
 
-      <div class="field">
+      <div class="field mb-2">
         <%= f.file_field :image, accept: "image/*" %>
       </div>
 
-      <div class="field">
-        <%= f.text_field :title, placeholder: "スレッドのタイトル" %>
+      <div class="field mb-2">
+        <%= f.text_field :title, placeholder: "スレッドのタイトル", class:"form-control" %>
       </div>
 
       <%# 検索タグを選択 => 選択･表示方法？ %>
@@ -19,8 +19,8 @@
         <%= %>
       </div>
 
-      <div class="field">
-        <%= f.text_area :introduction, placeholder: "スレッドの内容" %>
+      <div class="field mb-2">
+        <%= f.text_area :introduction, placeholder: "スレッドの内容", rows: 8, class:"form-control" %>
       </div>
 
       <div class="action">
