@@ -3,6 +3,9 @@
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  # ログイン前に退会済みユーザーかprotectedと合わせて確認
+  before_action :customer_state, only: [:create]
+
   # GET /resource/sign_in
   def new
     super
@@ -26,7 +29,17 @@ class Public::SessionsController < Devise::SessionsController
     root_path
   end
 
-  # protected
+  protected
+
+  #退会済み会員のログイン防止処理
+  def customer_state
+    @customer = Customer.find_by(email: params[:customer][:email])
+    return if !@customer
+    if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted == true
+      flash[:error] = "**退会済み情報のためご使用になれません**"
+      redirect_to new_customer_registration_path
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
