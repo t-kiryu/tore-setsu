@@ -1,0 +1,24 @@
+<%= form_with model: post, url: url do |f| %>
+  <div class="form-group w-50 mt-4">
+    <div class="field mb-2">
+      <%= f.file_field :image, accept: "image/*" %>
+    </div>
+
+    <div class="field mb-2">
+      <%= f.text_field :title, placeholder: "スレッドのタイトル", class:"form-control" %>
+    </div>
+
+    <%# 検索タグを選択 => 選択･表示方法？ %>
+    <div class="field">
+      <%= %>
+    </div>
+
+    <div class="field mb-2">
+      <%= f.text_area :introduction, placeholder: "スレッドの内容", rows: 8, class:"form-control" %>
+    </div>
+
+    <div class="action">
+      <%= f.submit "入力内容確認", class: "btn btn-primary btn-sm" %>
+    </div>
+  </div>
+<% end %>
