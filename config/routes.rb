@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     patch 'customers/infomation'      => 'customers#update'
     get   'customers/unsubscribe'     => 'customers#unsubscribe'
     patch 'customers/withdrawal'      => 'customers#withdrawal'
-    post 'post/confirm' => 'post#confirm'
+    post 'posts/confirm' => 'posts#confirm'
     resources :posts, only: [:new, :create, :index, :show, :edit, :update]
   end
 

@@ -9,12 +9,13 @@ class Public::PostsController < ApplicationController
   end
 
   def confirm
+    @post = Post.new(post_params)
   end
 
   def create
-    # @post = Post.new(post_params)
-    # @post.save
-    # redirect_to post_path(posts.id)
+    @post = Post.new(post_params)
+    @post.save
+    redirect_to post_path(@post.id)
   end
 
   def index
