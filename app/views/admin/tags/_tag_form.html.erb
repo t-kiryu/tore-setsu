@@ -1,0 +1,6 @@
+<%= form_with model: tag, url: url do |f| %>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "新規タグ名" %>
+    <%= f.submit submit, class:"btn btn-success btn-sm" %>
+  </div>
+<% end %>

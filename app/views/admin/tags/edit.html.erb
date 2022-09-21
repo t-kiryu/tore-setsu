@@ -2,11 +2,7 @@
   <div class="title">
     <h2>検索タグ編集</h2>
   </div>
-
-  <%= form_with model: @tag, url: admin_tag_path(@tag.id), method: :patch do |f| %>
-    <div class="field">
-      <%= f.text_field :name %>
-      <%= f.submit "変更保存", class: "btn btn-success btn-sm" %>
-    </div>
-  <% end %>
+  <div class="form">
+    <%= render 'tag_form', tag: @tag, url: admin_tag_path(@tag.id), method: :patch, submit: "変更保存" %>
+  </div>
 </div>

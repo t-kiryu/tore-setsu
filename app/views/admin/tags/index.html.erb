@@ -4,12 +4,9 @@
   </div>
 
   <%# タグ新規投稿 %>
-  <%= form_with model: @tag, url: admin_tags_path, method: :post do |f| %>
-    <div class="field">
-      <%= f.text_field :name, placeholder: "新規タグ名" %>
-      <%= f.submit "新規登録", class: "btn btn-success btn-sm" %>
-    </div>
-  <% end %>
+  <div class="form">
+    <%= render 'tag_form', tag: @tag, url: admin_tags_path, method: :post, submit: "新規登録" %>
+  </div>
 
   <%# タグ一覧 %>
   <div>
