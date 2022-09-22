@@ -1,2 +1,27 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="inner">
+  <div class="title">
+    <h2>スレッド詳細</h2>
+  </div>
+
+  <div class="form d-flex flex-row">
+    <div>
+      <% if @post.image.attached? %>
+        <%= image_tag @post.image, size: '100x100' %>
+      <% else %>
+        <%= image_tag "no_image", size: '100x100' %>
+      <% end %>
+    </div>
+    <div>
+      <%= "コメントマーク/件数" %></br>
+      <b><%= @post.title %></b>
+    </div>
+    <div>
+      <%= link_to "編集", edit_post_path, class: "btn btn-success btn-sm" %>
+    </div>
+  </div>
+
+  <div class="comment">
+    <%# コメントeach文で表示 %>
+    <%= "コメント一覧表示" %>
+  </div>
+</div>
