@@ -19,12 +19,12 @@
         </tr>
       </thead>
 
-      <% @posts.each do |posts| %>
+      <% @posts.each do |post| %>
         <tbody>
           <tr>
             <td></td>
-            <td><%= posts.user_name %></td>
-            <td></td>
+            <td><%= post.customer.user_name %></td>
+            <td><%= post.title %></td>
             <td></td>
           </tr>
         </tbody>
