@@ -22,8 +22,8 @@
       <% @posts.each do |post| %>
         <tbody>
           <tr>
-            <td></td>
-            <td><%= post.customer.user_name %></td>
+            <td><%= l post.created_at %></td>
+            <td><%# post.customer.user_name %></td>
             <td><%= post.title %></td>
             <td></td>
           </tr>
