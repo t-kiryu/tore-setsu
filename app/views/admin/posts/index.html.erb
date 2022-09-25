@@ -1,2 +1,34 @@
-<h1>Admin::Posts#index</h1>
-<p>Find me in app/views/admin/posts/index.html.erb</p>
+<div class="inner">
+  <div clas="title">
+    <h2>スレッド一覧</h2>
+  </div>
+
+  <div class="form">
+    <div class="info">
+      <%= "ページネーション" %>
+      <%= "検索フォーム" %>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>投稿日時</th>
+          <th>投稿ユーザー</th>
+          <th>タイトル</th>
+          <th>コメント数</th>
+        </tr>
+      </thead>
+
+      <% @posts.each do |posts| %>
+        <tbody>
+          <tr>
+            <td></td>
+            <td><%= posts.user_name %></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
