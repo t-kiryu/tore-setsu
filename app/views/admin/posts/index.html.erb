@@ -5,8 +5,8 @@
 
   <div class="form">
     <div class="info">
-      <%= "ページネーション" %>
-      <%= "検索フォーム" %>
+      ページネーション
+      検索フォーム
     </div>
 
     <table>
@@ -23,9 +23,9 @@
         <tbody>
           <tr>
             <td><%= l post.created_at %></td>
-            <td><%# post.customer.user_name %></td>
+            <td><%= post.customer.user_name %></td>
             <td><%= post.title %></td>
-            <td></td>
+            <td>"スレッド内のコメント数"</td>
           </tr>
         </tbody>
       <% end %>
