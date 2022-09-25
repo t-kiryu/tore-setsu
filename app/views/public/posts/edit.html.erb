@@ -3,4 +3,15 @@
     <h2>スレッド編集</h2>
   </div>
 
+  <%= form_with model: @post, url: post_path, method: :patch do |f| %>
+    <div class="form w-50 mt-3">
+      <div>
+        <%= f.text_area :introduction, rows: 8, class: "form-control mb-3" %>
+      </div>
+
+      <div>
+        <%= f.submit "変更登録", class: "btn btn-success btn-sm" %>
+      </div>
+    </div>
+  <% end %>
 </div>
