@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   scope module: :public do
-    root to: 'posts#top'
+    root to: 'homes#top'
     get   'customers/my_page'         => 'customers#show'
     get   'customers/infomation/edit' => 'customers#edit'
     patch 'customers/infomation'      => 'customers#update'
