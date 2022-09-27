@@ -13,11 +13,7 @@
       <%# flexで横並びにする予定 %>
       <% @posts.each do |post| %>
         <div>
-          <% if post.image.attached? %>
-            <%= image_tag post.image, size: '80x80' %>
-          <% else %>
-            <%= image_tag "no_image", size: '80x80' %>
-          <% end %>
+          <%= image_tag post.get_image %>
         </div>
         <div>
           <%= "コメントマーク/件数" %></br>

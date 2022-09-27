@@ -5,11 +5,12 @@
 
   <%= form_with model: @post, url: posts_confirm_path, method: :post do |f| %>
     <div class="form-group w-50 mt-4">
-      <div class="field mb-2">
+      <div class="field mb-4">
         <%= f.file_field :image, accept: "image/*" %>
       </div>
 
-      <div class="field mb-2">
+      <div class="field mb-4">
+        <%= f.label :title %>
         <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
       </div>
 
@@ -18,7 +19,8 @@
         <%= %>
       </div>
 
-      <div class="field mb-2">
+      <div class="field mb-4">
+        <%= f.label :introduction %>
         <%= f.text_area :introduction, placeholder: "内容", rows: 8, class: "form-control" %>
       </div>
 
