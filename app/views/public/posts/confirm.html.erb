@@ -6,7 +6,10 @@
   <%= form_with model: @post, url: posts_path, method: :post do |f| %>
     <div class="form-group w-50 mt-4">
       <div class="field mb-4">
-        <%= image_tag @post.get_image %>
+        <%# image_tag @post.get_image %>
+        
+        <%# f.hidden_field :image %>
+        <%# f.hidden_field :image_cache %>
       </div>
 
       <div class="field mb-4">
