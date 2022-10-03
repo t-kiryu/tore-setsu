@@ -5,11 +5,14 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts,  dependent: :destroy
+  has_many :post_comments
 
+ # 会員情報等の表示で使用
   def full_name
     last_name + " " + first_name
   end
 
+# 会員情報等の表示で漢字と合わせて使用
   def full_name_kana
     last_name_kana + " " + first_name_kana
   end
