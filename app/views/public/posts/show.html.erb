@@ -5,25 +5,26 @@
 
   <div class="form d-flex flex-row">
     <div>
-      <% if @post.image.attached? %>
-        <%= image_tag @post.image, size: '100x100' %>
-      <% else %>
-        <%= image_tag "no_image", size: '100x100' %>
-      <% end %>
+      <%= image_tag @post.get_image %>
     </div>
     <div>
-      <%= "コメントマーク/件数" %></br>
+      <i class="fas fa-comment"></i> <%= @post.post_comments.count %>件</br>
       <b><%= @post.title %></b>
     </div>
     <div>
       <%= link_to "編集", edit_post_path, class: "btn btn-success btn-sm" %>
+      <%#= link_to "コメントを投稿する", xxx_path, class: "btn btn-sm %>
     </div>
   </div>
   <div>
       <%= @post.introduction %>
   </div>
   <div class="comment">
-    <%# コメントeach文で表示 %>
-    <%= "コメント一覧表示" %>
+    <% @post.post_comments.each do |post_comment| %>
+      <%= コメント投稿者画像 %>
+      <%= コメント投稿者ユーザー名 %>
+      <%= コメント投稿内容 %>
+      <%= コメント投稿日時 %>
+    <% end %>
   </div>
 </div>
