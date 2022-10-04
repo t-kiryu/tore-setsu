@@ -8,12 +8,15 @@
       <%= image_tag @post.get_image %>
     </div>
     <div>
-      <i class="fas fa-comment"></i> <%= @post.post_comments.count %>件</br>
-      <b><%= @post.title %></b>
+      <b><%= @post.title %></b></br>
+      <%= l @post.created_at %>
+      <i class="fas fa-comment"></i> <%= @post.post_comments.count %>件
     </div>
     <div>
+    <%# 編集はなし？新しいスレッド立てるか %>
       <%= link_to "編集", edit_post_path, class: "btn btn-success btn-sm" %>
-      <%#= link_to "コメントを投稿する", xxx_path, class: "btn btn-sm %>
+      <%#= link_to "コメント", xxx_path, class: "btn btn-sm %>
+      <%#= link_to "お気に入り", xxx_path, class: "btn btn-sm" %>
     </div>
   </div>
   <div>
