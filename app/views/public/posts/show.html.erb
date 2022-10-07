@@ -24,14 +24,15 @@
   </div>
   <div>
     <% @post.post_comments.each do |post_comment| %>
-      <%= コメント投稿者画像 %>
-      <%= コメント投稿者ユーザー名 %>
-      <%= コメント投稿内容 %>
-      <%= コメント投稿日時 %>
+      <%= post_comment.customer.user_name %>
+      <%= post_comment.comment %>
+      <%#= l @post_commnet.created_at %>
     <% end %>
   </div>
   <div>
     <%= form_with model: [@post, @post_comment] do |f| %>
+      <%= f.text_area :comment, rows: '5', placeholder: "コメント内容" %>
+      <%= f.submit "コメントする", class: "btn btn-primary btn-sm" %>
     <% end %>
   </div>
 </div>
