@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get   'customers/unsubscribe'     => 'customers#unsubscribe'
     patch 'customers/withdrawal'      => 'customers#withdrawal'
     post 'posts/confirm' => 'posts#confirm'
-    # コメントを投稿に対して行うため親子関係(ネスト)にする
+    # 投稿に対してコメントを行うため親子関係(ネスト)にする
     resources :posts, only: [:new, :create, :index, :show, :edit, :update] do
       resources :post_comments, only: [:create, :destroy]
     end

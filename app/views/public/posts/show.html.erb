@@ -9,25 +9,29 @@
     </div>
     <div>
       <b><%= @post.title %></b></br>
-      <%= l @post.created_at %>
       <i class="fas fa-comment"></i> <%= @post.post_comments.count %>件
+      <%= l @post.created_at %>
     </div>
     <div>
     <%# 編集はなし？新しいスレッド立てるか %>
       <%= link_to "編集", edit_post_path, class: "btn btn-success btn-sm" %>
-      <%#= link_to "コメント", xxx_path, class: "btn btn-sm %>
+      <%#= link_to "コメント", xxx_path, class: "btn btn-primary btn-sm" %>
       <%#= link_to "お気に入り", xxx_path, class: "btn btn-sm" %>
     </div>
   </div>
   <div>
       <%= @post.introduction %>
   </div>
-  <div class="comment">
+  <div>
     <% @post.post_comments.each do |post_comment| %>
       <%= コメント投稿者画像 %>
       <%= コメント投稿者ユーザー名 %>
       <%= コメント投稿内容 %>
       <%= コメント投稿日時 %>
+    <% end %>
+  </div>
+  <div>
+    <%= form_with model: [@post, @post_comment] do |f| %>
     <% end %>
   </div>
 </div>
