@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   has_one_attached :image
 
   has_many :post_comments
+  belongs_to :customer
+
 
   def get_image
     unless image.attached?
@@ -11,6 +13,6 @@ class Post < ApplicationRecord
     image
   end
 
-  belongs_to :customer
+
 
 end

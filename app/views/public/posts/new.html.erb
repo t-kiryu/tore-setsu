@@ -3,12 +3,11 @@
     <h2>新規スレッド投稿</h2>
   </div>
 
-  <%= form_with model: @post, url: posts_confirm_path, method: :post do |f| %>
+  <%= form_with model: @post, url: posts_path, method: :post do |f| %>
     <div class="form">
       <div class="post-form w-50 mt-4">
         <div class="field mb-4">
           <%= f.file_field :image, accept: "image/*" %>
-          <%# f.hidden_field :image_cache %>
         </div>
 
         <div class="field mb-4">
