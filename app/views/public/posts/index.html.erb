@@ -3,17 +3,17 @@
     <h2>スレッド一覧</h2>
   </div>
 
-  <div class="info">
-    全xx件中、<%= @posts.count %>件を表示
-    **検索フォーム**
-  </div>
-  <%# レコード（行）に対してリンクを貼りたい %>
-  <%# 仮でタイトルにリンクを設定 %>
+  <div class="form">
+    <div class="info">
+      全xx件中、<%= @posts.count %>件を表示
+      **検索フォーム**
+    </div>
+
     <div class="form w-75 d-flex flex-row">
       <%# flexで横並びにする予定 %>
       <% @posts.each do |post| %>
         <div>
-          <%= image_tag post.get_image %>
+          <%= image_tag post.get_image, size: '100x100' %>
         </div>
         <div>
           <%= "コメントマーク/件数" %></br>
@@ -21,6 +21,8 @@
         </div>
       <% end %>
     </div>
+  </div>
 
   **ページネーション実装**
+
 </div>
