@@ -6,18 +6,20 @@
   <div class="form">
     <div class="info">
       全xx件中、<%= @posts.count %>件を表示
+
       **検索フォーム**
     </div>
 
-    <div class="form w-75 d-flex flex-row">
-      <%# flexで横並びにする予定 %>
+    <div class="post-list w-75 d-flex flex-row">
       <% @posts.each do |post| %>
-        <div>
+        <div class="post">
           <%= image_tag post.get_image, size: '100x100' %>
-        </div>
-        <div>
-          <%= "コメントマーク/件数" %></br>
-          <b><%= link_to post.title, post_path(post.id) %></b>
+          <h3><%= link_to post.title, post_path(post.id) %></h3>
+          <p class="comment">
+            <i class="fas fa-comment"></i>
+            <%= post.post_comments.count %>件
+            <%= l post.created_at %>
+          </p>
         </div>
       <% end %>
     </div>
