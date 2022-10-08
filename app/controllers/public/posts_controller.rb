@@ -30,12 +30,13 @@ class Public::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-
   end
 
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
+    # render用
+    @post_comment = PostComment.new
     render :show
   end
 
