@@ -1,33 +1,35 @@
-<div>
+<div class="inner">
   <div class="title mt-4">
     <h2>新規スレッド投稿</h2>
   </div>
 
   <%= form_with model: @post, url: posts_confirm_path, method: :post do |f| %>
-    <div class="form-group w-50 mt-4">
-      <div class="field mb-4">
-        <%= f.file_field :image, accept: "image/*" %>
-        <%# f.hidden_field :image_cache %>
-      </div>
+    <div class="form">
+      <div class="post-form w-50 mt-4">
+        <div class="field mb-4">
+          <%= f.file_field :image, accept: "image/*" %>
+          <%# f.hidden_field :image_cache %>
+        </div>
 
-      <div class="field mb-4">
-        <%= f.label :title %>
-        <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
-      </div>
+        <div class="field mb-4">
+          <%= f.label :title %>
+          <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
+        </div>
 
-      <%# 検索タグを選択 => 選択･表示方法？ %>
-      <div class="field">
-        <%= %>
-      </div>
+        <%# 検索タグを選択 => 選択･表示方法？ %>
+        <div class="field">
+          <%= %>
+        </div>
 
-      <div class="field mb-4">
-        <%= f.label :introduction %>
-        <%= f.text_area :introduction, placeholder: "内容", rows: 8, class: "form-control" %>
-      </div>
+        <div class="field mb-4">
+          <%= f.label :introduction %>
+          <%= f.text_area :introduction, placeholder: "内容", rows: 8, class: "form-control" %>
+        </div>
 
-      <div class="action">
-        <%= f.submit "確認画面へ進む", class: "btn btn-primary btn-sm" %>
+        <div class="action">
+          <%= f.submit "確認画面へ進む", class: "btn btn-primary btn-sm" %>
+        </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
