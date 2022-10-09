@@ -3,27 +3,40 @@
     <h2>スレッド詳細</h2>
   </div>
 
-  <div class="form d-flex flex-row">
-    <div>
-      <% if @post.image.attached? %>
-        <%= image_tag @post.image, size: '100x100' %>
-      <% else %>
-        <%= image_tag "no_image", size: '100x100' %>
-      <% end %>
+  <div class="form">
+
+    <div class="head-area">
+      <%= image_tag @post.get_image %>
+      <h3><%= @post.title %></h3>
+      <p class="comment">
+        <i class="fas fa-comment"></i>
+        <%= @post.post_comments.count %>件
+        <%= l @post.created_at %>
+      </p>
+
+      <div class="post-introduction">
+        <%= @post.introduction %>
+      </div>
     </div>
-    <div>
-      <%= "コメントマーク/件数" %></br>
-      <b><%= @post.title %></b>
+
+    <div class="body-area">
+      <div class="comment-list">
+        <% @post.post_comments.each do |post_comment| %>
+          <div class="info">
+            <%= post_comment.customer.user_name %>
+            <%= l post_comment.created_at %>
+            <% if post_comment.show_comment %>
+              <b><%= "有効" %></b>
+            <% else %>
+              <b><%= "無効" %></b>
+            <% end %>
+            <%#= link_to "編集する",xxx_path, class: "btn btn-success btn-sm" %>
+          </div>
+          <div class="comment">
+            <%= post_comment.comment %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div>
-      <%= link_to "編集", edit_admin_post_path, class: "btn btn-success btn-sm" %>
-    </div>
-  </div>
-  <div>
-      <%= @post.introduction %>
-  </div>
-  <div class="comment">
-    <%# コメントeach文で表示 %>
-    <%= "コメント一覧表示" %>
   </div>
 </div>
