@@ -30,8 +30,14 @@
             <% else %>
               <b><%= "無効" %></b>
             <% end %>
-            <%#= link_to "編集する",xxx_path, class: "btn btn-success btn-sm" %>
+
+            <%= form_with model: [@post, @post_comment], do |f| %>
+              <%= f.radio_button :show_comment, true %> <%= f.label :show_comment, "有効" %>
+              <%= f.radio_button :show_comment, false %> <%= f.label :show_comment, "無効" %>
+              <%= f.submit "変更登録", class: "btn btn-success btn-sm" %>
+            <% end %>
           </div>
+
           <div class="comment">
             <%= post_comment.comment %>
           </div>

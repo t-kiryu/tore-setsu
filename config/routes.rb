@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     root to: 'posts#index'
     resources :customers, only: [:index, :show, :edit, :update]
     resources :tags,      only: [:index, :create, :edit, :update]
-    resources :posts,     only: [:index, :show, :edit, :update, :delete]
+    resources :posts,     only: [:index, :show, :edit, :update, :delete] do
+      resources :post_comments, only: [:edit, :update]
+    end
   end
 
   devise_for :customers, skip: [:passwords], controllers: {
