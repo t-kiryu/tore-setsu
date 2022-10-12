@@ -1,11 +1,11 @@
-<div>
+<div class="inner container col-12 w-75">
   <div class="title">
-    <b><%= @customer.user_name %>さんの登録内容編集</b>
+    <h3><%= @customer.user_name %>さんの登録内容編集</h3>
   </div>
 
   <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
-    <div class="form-group">
-      <table>
+    <div class="form col-10">
+      <table class="table table-borderless">
         <thead>
           <tr>
             <th></th>
@@ -15,26 +15,28 @@
         <tbody>
           <tr>
             <td>氏名</td>
-            <td><%= f.text_field :last_name %></td>
-            <td><%= f.text_field :first_name %></td>
+            <td><%= f.text_field :last_name, class: "form-control" %></td>
+            <td><%= f.text_field :first_name, class: "form-control"  %></td>
           </tr>
           <tr>
             <td>フリガナ</td>
-            <td><%= f.text_field :last_name_kana %></td>
-            <td><%= f.text_field :first_name_kana %></td>
+            <td><%= f.text_field :last_name_kana, class: "form-control"  %></td>
+            <td><%= f.text_field :first_name_kana, class: "form-control"  %></td>
           </tr>
           <tr>
             <td>ユーザーネーム</td>
-            <td colcpan="2"><%= f.text_field :user_name %></td>
+            <td colcpan="2"><%= f.text_field :user_name, class: "form-control"  %></td>
           </tr>
           <tr>
             <td>メールアドレス</td>
-            <td colcpan="2"><%= f.email_field :email %></td>
+            <td colcpan="2"><%= f.email_field :email, class: "form-control"  %></td>
           </tr>
           <tr>
             <td>ステータス</td>
-            <td><%= f.radio_button :is_deleted, false %> <%= f.label :is_deleted, "有効" %></td>
-            <td><%= f.radio_button :is_deleted, true %> <%= f.label :is_deleted, "退会" %></td>
+            <td>
+              <%= f.radio_button :is_deleted, false %> <%= f.label :is_deleted, "有効" %>
+              <%= f.radio_button :is_deleted, true %> <%= f.label :is_deleted, "退会" %>
+            </td>
           </tr>
         </tbody>
       </table>

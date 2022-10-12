@@ -1,13 +1,12 @@
-<div>
+<div class="inner container w-75">
   <div class="title">
-    <h2><%= @customer.user_name %>さんの登録内容</h2>
+    <h3><%= @customer.user_name %>さんの登録内容</h3>
   </div>
 
-  <div class="form">
-    <table>
+  <div class="form col-8">
+    <table class="table table-striped">
       <thead>
-        <th></th>
-        <th></th>
+
       </thead>
       <tbody>
         <tr>
@@ -40,17 +39,12 @@
             <% end %>
           </td>
         </tr>
-        <tr>
-          <td colspan="2">
-            スレッド一覧
-            ブックマーク一覧
-            <%= link_to "編集", edit_admin_customer_path, class: "btn btn-success btn-sm" %>
-          </td>
-        </tr>
       </tbody>
     </table>
     <div class="action">
-
+      スレッド一覧
+      ブックマーク一覧
+      <%= link_to "編集", edit_admin_customer_path, class: "btn btn-success btn-sm" %>
     </div>
   </div>
 </div>
