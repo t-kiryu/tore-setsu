@@ -1,10 +1,10 @@
 class Admin::PostCommentsController < ApplicationController
   before_action :authenticate_admin!
 
-  #def edit
-  #  @post = Post.find(params[:post_id])
-  #  @post_comment = PostComment.find(params[:id])
-  #end
+  def edit
+    @post = Post.find(params[:post_id])
+    @post_comment = PostComment.find(params[:id])
+  end
 
   def update
     @post = Post.find(params[:post_id])
@@ -16,6 +16,6 @@ class Admin::PostCommentsController < ApplicationController
   private
 
   def post_comment_params
-    params.require(:post_comment).permit(:show_comment)
+    params.require(:post_comment).permit(:comment, :show_comment)
   end
 end

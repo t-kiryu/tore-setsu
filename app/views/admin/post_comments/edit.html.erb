@@ -1,0 +1,22 @@
+<div class="inner">
+  <div class="title">
+    <h2>コメント編集</h2>
+  </div>
+
+  <div class="form">
+    <%= form_with model: [@post, @post_comment] do |f| %>
+      <div clas="comment">
+        <%= f.label :コメント内容 %></br>
+        <%= f.text_area :post_comment %>
+      </div>
+
+      <div class="show-comment">
+        <%= f.radio_button :show_comment, true %> <%= f.label :show_comment, "有効" %>
+        <%= f.radio_button :show_comment, false %> <%= f.label :show_comment, "無効" %>
+      </div>
+
+      <%= f.submit "変更登録", class: "btn btn-success btn-sm" %>
+
+    <% end %>
+  </div>
+</div>
