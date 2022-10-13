@@ -1,6 +1,6 @@
 <div class="inner container col-12 w-75">
   <div class="title">
-    <h3><%= @customer.user_name %>さんの登録内容編集</h3>
+    <h3><%= @customer.user_name %> さんの登録内容編集</h3>
   </div>
 
   <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
