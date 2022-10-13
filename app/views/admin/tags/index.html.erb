@@ -1,30 +1,30 @@
-<div>
+<div class="inner container w-75">
   <div class="title">
     <h2>検索タグ一覧・追加</h2>
   </div>
 
-  <%# タグ新規投稿 %>
   <div class="form">
-    <%= render 'tag_form', tag: @tag, url: admin_tags_path, method: :post, submit: "新規登録" %>
-  </div>
+    <div class="post-form w-50 mt-4">
+      <%= render 'tag_form', tag: @tag, url: admin_tags_path, method: :post, submit: "新規登録" %>
+    </div>
 
-  <%# タグ一覧 %>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th colspan="2">登録タグ</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @tags.each do |tag| %>
+    <div class="tag-list mt-5 w-50">
+      <table class="table table-borderless">
+        <thead class="thead-dark">
           <tr>
-            <td><%= tag.name%></td>
-            <td><%= link_to "編集", edit_admin_tag_path(tag.id), class: "btn btn-success btn-sm" %></td>
+            <th colspan="3">登録タグ</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @tags.each do |tag| %>
+            <tr>
+              <td><%= tag.name%></td>
+              <td class="text-center"><%= link_to "編集", edit_admin_tag_path(tag.id), class: "btn btn-success btn-sm" %></td>
+              <td class="text-center"><%= link_to "削除", admin_tag_path(tag.id), method: :delete, class: "btn btn-danger btn-sm" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
