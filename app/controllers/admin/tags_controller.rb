@@ -25,6 +25,14 @@ class Admin::TagsController < ApplicationController
     render :index
   end
 
+  def destroy
+    @tag = Tag.find(params[:id])
+    @tag.destroy
+    @tag = Tag.new
+    @tags = Tag.all
+    render :index
+  end
+
   private
 
   def tag_params

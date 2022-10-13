@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'posts#index'
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :tags,      only: [:index, :create, :edit, :update]
+    resources :tags,      only: [:index, :create, :edit, :update, :destroy]
     resources :posts,     only: [:index, :show, :edit, :update, :delete] do
       resources :post_comments, only: [:edit, :update]
     end
