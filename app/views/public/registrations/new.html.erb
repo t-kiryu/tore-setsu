@@ -1,6 +1,6 @@
 <p id="notice"><%= flash[:error] %></p>
 
-<div>
+<div class="container col-10 mt-4">
   <div class="title">
     <h2>新規会員登録</h2>
   </div>
@@ -10,7 +10,7 @@
     <%= render "public/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <table>
+        <table class="table table-borderless">
           <thead>
             <th></th>
             <th></th>
@@ -18,34 +18,34 @@
           </thead>
           <tbody>
             <tr>
-              <td>氏名</td>
-              <td><%= f.label :"(性)" %> <%= f.text_field :last_name, placeholder: "山田" %></td>
-              <td><%= f.label :"(名)" %> <%= f.text_field :first_name, placeholder: "太郎" %></td>
+              <td class="col-2">氏名</td>
+              <td class="col-4"><%= f.label :"(性)" %> <%= f.text_field :last_name, placeholder: "山田", class: "form-control" %></td>
+              <td class="col-4"><%= f.label :"(名)" %> <%= f.text_field :first_name, placeholder: "太郎", class: "form-control" %></td>
             </tr>
             <tr>
               <td>フリガナ</td>
-              <td><%= f.label :"(セイ)" %> <%= f.text_field :last_name_kana, placeholder: "ヤマダ" %></td>
-              <td><%= f.label :"(メイ)" %> <%= f.text_field :first_name_kana, placeholder: "タロウ" %></td>
+              <td><%= f.label :"(セイ)" %> <%= f.text_field :last_name_kana, placeholder: "ヤマダ", class: "form-control" %></td>
+              <td><%= f.label :"(メイ)" %> <%= f.text_field :first_name_kana, placeholder: "タロウ", class: "form-control" %></td>
             </tr>
             <tr>
               <td><%= f.label :"ユーザーネーム" %></td>
-              <td colspan="2"><%= f.text_field :user_name, placeholder: "y-taro" %></td>
+              <td colspan="2"><%= f.text_field :user_name, placeholder: "y-taro", class: "form-control" %></td>
             </tr>
             <tr>
               <td>メールアドレス</td>
-              <td colspan="2"><%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com" %></td>
+              <td colspan="2"><%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %></td>
             </tr>
             <tr>
               <td>パスワード</td>
-              <td colspan="2"><%= f.password_field :password %></td>
+              <td colspan="2"><%= f.password_field :password, class: "form-control" %></td>
             </tr>
             <tr>
               <td>確認用パスワード</td>
-              <td colspan="2"><%= f.password_field :password_confirmation %></td>
+              <td colspan="2"><%= f.password_field :password_confirmation, class: "form-control" %></td>
             </tr>
             <tr>
               <td></td>
-              <td><%= f.submit "新規登録", class: "btn btn-primary btn-sm" %></td>
+              <td colspan="2"><%= f.submit "新規登録", class: "btn btn-primary btn-sm w-100" %></td>
             </tr>
           </tbody>
         </table>
@@ -54,4 +54,5 @@
   </div>
 
   <p>登録がお済みの方は<%= link_to " こちら ", new_customer_session_path %>からログインをお願いします</p>
+
 </div>
