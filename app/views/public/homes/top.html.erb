@@ -8,7 +8,25 @@
 
   <div class="top-body">
     <div class="post-list">
-      新着スレッドを10件くらい表示
+      <h3>新着スレッド</h3>
+      <% @posts.each do |post| %>
+        <div class="post">
+          <table>
+            <thead>
+              <tr>
+                <%= link_to post.title, post_path(post.id) %>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><i class="fas fa-comment"></i></td>
+                <td><%= post.post_comments.count %>件</td>
+                <td><%= l post.created_at %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
