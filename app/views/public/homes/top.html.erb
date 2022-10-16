@@ -1,32 +1,27 @@
 <div class="inner container col-12">
-  <div class="top-head text-center mt-5">
+  <div class="title text-center mt-5 mb-5">
     <h2>
       みんなの声で</br>
       理想の姿を手に入れよう
     </h2>
   </div>
 
-  <div class="top-body">
-    <div class="post-list">
-      <h3>新着スレッド</h3>
-      <% @posts.each do |post| %>
-        <div class="post">
-          <table>
-            <thead>
-              <tr>
-                <%= link_to post.title, post_path(post.id) %>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><i class="fas fa-comment"></i></td>
-                <td><%= post.post_comments.count %>件</td>
-                <td><%= l post.created_at %></td>
-              </tr>
-            </tbody>
-          </table>
+  <div class="contents d-flex justify-content-around">
+    <a href="/about">
+      <div class="card" style="width: 18rem;">
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="no_image.jpg"></svg>
+        <div class="card-body text-center">
+          <h5>初めての方へ</h5>
         </div>
-      <% end %>
-    </div>
+      </div>
+    </a>
+    <a href="/posts">
+      <div class="card" style="width: 18rem;">
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="no_image.jpg"></svg>
+        <div class="card-body text-center">
+          <h5>投稿一覧</h5>
+        </div>
+      </div>
+    </a>
   </div>
 </div>
