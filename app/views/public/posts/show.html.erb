@@ -7,10 +7,15 @@
     <div class="head-area">
       <%= image_tag @post.get_image %>
       <h3><%= @post.title %></h3>
-      <p class="comment">
+      <p>
         <i class="fas fa-comment"></i>
         <%= @post.post_comments.count %>件
         <%= l @post.created_at %>
+      </p>
+      <p>
+        <% @post.tags.each do |tag| %>
+          <span class="bg-primary text-white rounded-lg"><%= tag.name %></span>
+        <% end %>
       </p>
       <div class="head-area-btns">
         <% if @post.customer == current_customer %>
@@ -26,7 +31,7 @@
     <div class="body-area">
       <div class="comment-list">
         <% @post.post_comments.each do |post_comment| %>
-          <div class="info">
+          <div class="comment-info">
             <%= post_comment.customer.user_name %>
             <%= l post_comment.created_at %>
           </div>
