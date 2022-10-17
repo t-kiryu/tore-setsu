@@ -1,7 +1,10 @@
 class Post < ApplicationRecord
   has_one_attached :image
 
-  has_many :post_comments
+  has_many :post_comments, dependent: :destroy
+  has_many :tag_lists, dependent: :destroy
+  has_many :tags, through: :tag_lists
+
   belongs_to :customer
 
 
@@ -12,7 +15,5 @@ class Post < ApplicationRecord
     end
     image
   end
-
-
 
 end
