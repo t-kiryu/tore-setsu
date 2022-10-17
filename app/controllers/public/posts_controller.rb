@@ -20,8 +20,9 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
     @posts = Post.all.order(created_at: :desc)
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
+
   end
 
   def show
@@ -36,7 +37,6 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    # render用
     @post_comment = PostComment.new
     render :show
   end

@@ -8,6 +8,15 @@
       <div class="post-edit-form">
         <%= f.label :Introdubction %>
         <%= f.text_area :introduction, rows: 8, class: "form-control mb-3" %>
+        <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+          <div class="tag-list">
+            <%= tag.label do %>
+              <%= tag.check_box %>
+              <%= tag.text %>
+            <% end %>
+          </div>
+        <% end %>
+
         <%= f.submit "変更登録", class: "btn btn-success btn-sm" %>
       </div>
     <% end %>
