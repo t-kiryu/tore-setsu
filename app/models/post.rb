@@ -17,4 +17,9 @@ class Post < ApplicationRecord
     image
   end
 
+  # ブックマーク済みか検証
+  def bookmarked_by?(customer)
+    bookmarks.where(customer_id: customer).exists?
+  end
+
 end
