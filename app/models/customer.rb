@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :posts,  dependent: :destroy
   has_many :post_comments
+  has_many :bookmarks, dependent: :destroy
 
  # 会員情報等の表示で使用
   def full_name
