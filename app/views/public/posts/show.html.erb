@@ -7,26 +7,26 @@
     <div class="head-area">
       <%= image_tag @post.get_image %>
       <h3><%= @post.title %></h3>
-      
+
       <p>
         <i class="fas fa-comment"></i>
         <%= @post.post_comments.count %>件
         <%= l @post.created_at %>
       </p>
-      
+
       <p>
         <% @post.tags.each do |tag| %>
           <span class="bg-primary text-white rounded-lg"><%= tag.name %></span>
         <% end %>
       </p>
-      
+
       <div class="head-area-btns">
         <% if @post.customer == current_customer %>
           <%= link_to "編集", edit_post_path, class: "btn btn-success btn-sm" %>
         <% end %>
         <%#= link_to "お気に入り", xxx_path, class: "btn btn-sm" %>
       </div>
-      
+
       <div class="post-introduction">
         <%= @post.introduction %>
       </div>
