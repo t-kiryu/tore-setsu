@@ -24,7 +24,17 @@
         <% if @post.customer == current_customer %>
           <%= link_to "編集", edit_post_path, class: "btn btn-success btn-sm" %>
         <% end %>
+
         <%#= link_to "お気に入り", xxx_path, class: "btn btn-sm" %>
+        <% if @post.bookmarked_by?(current_customer) %>
+          <%= link_to post_bookmarks_path(@post), method: :delete do %>
+            <i class="fas fa-star text-warning"></i>
+          <% end %>
+        <% else %>
+          <%= link_to post_bookmarks_path(@post), method: :post do %>
+            <i class="fas fa-star text-secondary"></i>
+          <% end %>
+        <% end %>
       </div>
 
       <div class="post-introduction">
