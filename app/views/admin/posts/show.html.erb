@@ -1,40 +1,41 @@
-<div class="inner">
-  <div class="title">
+<div class="inner container w-75 mt-3">
+  <div class="title mt-5">
     <h2>スレッド詳細</h2>
   </div>
 
-  <div class="form">
-
+  <div class="form mt-4">
     <div class="head-area">
-      <%= image_tag @post.get_image %>
-      <h3><%= @post.title %></h3>
-      <p class="comment">
-        <i class="fas fa-comment"></i>
-        <%= @post.post_comments.count %>件
-        <%= l @post.created_at %>
-      </p>
+      <div class="post d-flex justify-content-start border-bottom">
+        <div class="post-image">
+          <%= image_tag @post.get_image %>
+        </div>
 
-      <div class="post-introduction">
-        <%= @post.introduction %>
+        <div class="post-infomation my-auto ml-4">
+          <h3><%= @post.title %></h3>
+          <p class="commnet">
+            <i class="fas fa-comment"></i>
+            <%= @post.post_comments.count %>件
+            <%= l @post.created_at %>
+          </p>
+        </div>
       </div>
     </div>
 
     <div class="body-area">
       <div class="comment-list">
         <% @post.post_comments.each do |post_comment| %>
-          <div class="info">
+          <div class="comment-content border-bottom mt-2">
             <%= post_comment.customer.user_name %>
             <%= l post_comment.created_at %>
+            <p class="commnet mt-3">
+              <%= post_comment.comment %>
+            </p>
             <% if post_comment.show_comment %>
               <b><%= "有効" %></b>
             <% else %>
               <b><%= "無効" %></b>
             <% end %>
-            <%= link_to "編集", edit_admin_post_post_comment_path(post_comment.id), class: "btn btn-success btn-sm" %>
-          </div>
-
-          <div class="comment">
-            <%= post_comment.comment %>
+            <%= link_to "編集", edit_admin_post_post_comment_path(post_comment.id), class: "btn btn-success btn-sm mb-2" %>
           </div>
         <% end %>
       </div>

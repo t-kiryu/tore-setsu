@@ -1,43 +1,47 @@
-<div class="inner">
-  <div class="title">
+<div class="inner container w-75 mt-3">
+  <div class="title mt-5">
     <h2>スレッド詳細</h2>
   </div>
 
-  <div class="form">
+  <div class="form mt-4">
     <div class="head-area">
-      <%= image_tag @post.get_image %>
-      <h3><%= @post.title %></h3>
+      <div class="post d-flex justify-content-start border-bottom">
+        <div class="post-image">
+          <%= image_tag @post.get_image %>
+        </div>
 
-      <p>
-        <i class="fas fa-comment"></i>
-        <%= @post.post_comments.count %>件
-        <%= l @post.created_at %>
-      </p>
+        <div class="post-infomation my-auto ml-4">
+          <h3><%= @post.title %></h3>
+          <p class="comment">
+            <i class="fas fa-comment"></i>
+            <%= @post.post_comments.count %>件
+            <%= l @post.created_at %>
 
-      <p>
-        <% @post.tags.each do |tag| %>
-          <span class="bg-primary text-white rounded-lg"><%= tag.name %></span>
-        <% end %>
-      </p>
-
-      <div class="head-area-btns">
-        <% if @post.customer == current_customer %>
-          <%= link_to "編集", edit_post_path, class: "btn btn-success btn-sm" %>
-        <% end %>
-
-        <%#= link_to "お気に入り", xxx_path, class: "btn btn-sm" %>
-        <% if @post.bookmarked_by?(current_customer) %>
-          <%= link_to post_bookmarks_path(@post), method: :delete do %>
-            <i class="fas fa-star text-warning"></i>
-          <% end %>
-        <% else %>
-          <%= link_to post_bookmarks_path(@post), method: :post do %>
-            <i class="fas fa-star text-secondary"></i>
-          <% end %>
-        <% end %>
+            <span class=" btn-bookmark ml-3">
+              <% if @post.bookmarked_by?(current_customer) %>
+                <%= link_to post_bookmarks_path(@post), method: :delete do %>
+                  <i class="fas fa-star text-warning"></i>
+                <% end %>
+              <% else %>
+                <%= link_to post_bookmarks_path(@post), method: :post do %>
+                  <i class="fas fa-star text-secondary"></i>
+                <% end %>
+              <% end %>
+            </span>
+            <span class="btn-edit ml-3">
+              <% if @post.customer == current_customer %>
+                <%= link_to "編集", edit_post_path, class: "btn btn-success btn-sm" %>
+              <% end %>
+            </span>
+          </p>
+          <p class="tag">
+            <% @post.tags.each do |tag| %>
+              <span class="bg-primary text-white rounded-lg"><%= tag.name %></span>
+            <% end %>
+          </p>
+        </div>
       </div>
-
-      <div class="post-introduction">
+      <div class="post-introduction border-bottom mt-3 mb-3">
         <%= @post.introduction %>
       </div>
     </div>
@@ -45,30 +49,29 @@
     <div class="body-area">
       <div class="comment-list">
         <% @post.post_comments.each do |post_comment| %>
-          <div class="comment-info">
+          <div class="comment-content border-bottom mt-2">
             <%= post_comment.customer.user_name %>
             <%= l post_comment.created_at %>
-          </div>
-
-          <div class="comment">
-          <%# true=>コメント表示、false=>削除コメント %>
-            <% if post_comment.show_comment %>
-              <%= post_comment.comment %>
-              <% if post_comment.customer == current_customer %>
-                <%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, class: "btn btn-danger btn-sm" %>
+            <p class="comment">
+            <%# true=>コメント表示、false=>削除コメント %>
+              <% if post_comment.show_comment %>
+                <%= post_comment.comment %>
+                  <% if post_comment.customer == current_customer %>
+                    <%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, class: "btn btn-danger btn-sm" %>
+                  <% end %>
+              <% else %>
+                <%= "不適切なコメントのため管理者によって削除されました" %>
               <% end %>
-            <% else %>
-              <%= "不適切なコメントのため管理者によって削除されました" %>
-            <% end %>
+            </p>
           </div>
         <% end %>
       </div>
 
-      <div class="comment-form">
+      <div class="comment-form mt-5">
         <% if customer_signed_in? %>
           <%= form_with model: [@post, @post_comment] do |f| %>
-            <%= f.text_area :comment, rows: '5', placeholder: "コメント内容" %>
-            <%= f.submit "コメントする", class: "btn btn-primary btn-sm" %>
+            <%= f.text_area :comment, rows: '5', placeholder: "コメントを入力してください", class: "form-control" %>
+            <%= f.submit "コメントする", class: "btn btn-primary btn-sm w-100 mt-3" %>
           <% end %>
         <% end %>
       </div>
