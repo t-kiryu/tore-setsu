@@ -17,7 +17,15 @@
             <%= @post.post_comments.count %>件
             <%= l @post.created_at %>
           </p>
+          <p class="tag">
+            <% @post.tags.each do |tag| %>
+              <span class="bg-primary text-white rounded-lg"><%= tag.name %></span>
+            <% end %>
+          </p>
         </div>
+      </div>
+      <div class="post-introduction border-bottom mt-3 mb-3">
+        <b><%= @post.introduction %></b>
       </div>
     </div>
 
