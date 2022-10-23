@@ -1,16 +1,11 @@
 <div class="inner container">
-  <div clas="title">
+  <div clas="title mt-5">
     <h2>スレッド一覧</h2>
   </div>
 
-  <div class="form">
-    <div class="info d-flex">
-      <div class="d-flex justify-content-center">
-        ページネーション
-      </div>
-      <div>
-        検索フォーム
-      </div>
+  <div class="form mt-4">
+    <div>
+      検索フォーム
     </div>
 
     <table class="table table-hover">
@@ -35,4 +30,9 @@
       <% end %>
     </table>
   </div>
+
+  <div class="paginate mt-4" %>
+    <%= paginate @posts %>
+  </div>
+
 </div>
