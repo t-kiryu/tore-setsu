@@ -3,10 +3,6 @@
     <h2>会員一覧</h2>
   </div>
 
-  <div class="paginate mt-4">
-    <%= paginate @customers %>
-  </div>
-
   <div class="form mt-4">
     <table class="table table-hover">
       <thead class="thead-dark">
@@ -38,4 +34,9 @@
       <% end %>
     </table>
   </div>
+
+  <div class="paginate mt-4" %>
+    <%= paginate @customers %>
+  </div>
+
 </div>
