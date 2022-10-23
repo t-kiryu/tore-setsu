@@ -1,11 +1,13 @@
 <div class="inner container w-75">
-  <div class="title">
+  <div class="title mt-5">
     <h2>会員一覧</h2>
   </div>
 
-  ページネーション
+  <div class="paginate mt-4">
+    <%= paginate @customers %>
+  </div>
 
-  <div class="form">
+  <div class="form mt-4">
     <table class="table table-hover">
       <thead class="thead-dark">
         <tr>
