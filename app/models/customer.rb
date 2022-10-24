@@ -4,9 +4,17 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :posts,  dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_many :post_comments
   has_many :bookmarks, dependent: :destroy
+
+  validates :email,           presence: true
+  validates :last_name,       presence: true
+  validates :first_name,      presence: true
+  validates :last_name_kana,  presence: true
+  validates :first_name_kana, presence: true
+  validates :user_name,       presence: true, uniqueness: true
+
 
  # 会員情報等の表示で使用
   def full_name

@@ -8,6 +8,8 @@ class Post < ApplicationRecord
 
   belongs_to :customer
 
+  validates :title, presence: true, length: { minimum: 1, maximum: 30 }
+  validates :introduction, presence: true, length: { minimum: 1, maximum: 255 }
 
   def get_image
     unless image.attached?
