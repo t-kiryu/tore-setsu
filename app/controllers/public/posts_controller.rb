@@ -51,6 +51,5 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :introduction, :image, tag_ids:[])
   end
-
   # tag_ids:[] => 渡された複数タグを配列形式でpost_paramsに渡す
 end
