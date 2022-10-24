@@ -4,6 +4,9 @@
   </div>
 
   <div class="form">
+    <%#= エラーメッセージ部分テンプレ %>
+    <%#= render 'layouts/error_messages' %>
+
     <div class="post-form w-50 mt-4">
       <%= render 'tag_form', tag: @tag, url: admin_tags_path, method: :post, submit: "新規登録" %>
     </div>
