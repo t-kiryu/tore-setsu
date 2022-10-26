@@ -27,6 +27,11 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
 
+  def bookmark
+    @posts = Post.all.order(created_at: :desc)
+  end
+
+
   private
 
   def customer_params

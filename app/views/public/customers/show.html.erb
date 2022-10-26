@@ -31,7 +31,7 @@
 
   <div class="action">
     <span>投稿一覧</span>
-    <span>ブックマーク一覧</span>
+    <%= link_to "ブックマーク一覧", customers_bookmark_path, class: "btn btn-primary btn-sm" %>
     <%= link_to "編集", customers_infomation_edit_path, class: "btn btn-success btn-sm" %>
     <%= link_to "退会", customers_unsubscribe_path, class: "btn btn-danger btn-sm" %>
   </div>
