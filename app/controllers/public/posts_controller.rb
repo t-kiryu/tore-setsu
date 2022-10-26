@@ -25,7 +25,6 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc)
     @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
-
   end
 
   def show
