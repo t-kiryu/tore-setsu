@@ -1,17 +1,11 @@
 <div class="inner container col-12 w-75">
-  <div class="title">
+  <div class="title mt-5">
     <h3><%= @customer.user_name %> さんの登録内容編集</h3>
   </div>
 
   <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
-    <div class="form col-10">
+    <div class="form col-10 mt-3">
       <table class="table table-borderless">
-        <thead>
-          <tr>
-            <th></th>
-            <td></td>
-          </tr>
-        </thead>
         <tbody>
           <tr>
             <td>氏名</td>
