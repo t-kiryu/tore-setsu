@@ -28,7 +28,8 @@ class Public::CustomersController < ApplicationController
   end
 
   def bookmark
-    @posts = Post.all.order(created_at: :desc)
+    bookmarks = Bookmark.where(customer_id: current_customer.id).pluck(:post_id)
+    @bookmark_list = Post.find(bookmarks)
   end
 
 
