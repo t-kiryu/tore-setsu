@@ -8,15 +8,14 @@ Rails.application.routes.draw do
     patch 'customers/infomation'      => 'customers#update'
     get   'customers/unsubscribe'     => 'customers#unsubscribe'
     patch 'customers/withdrawal'      => 'customers#withdrawal'
-    get   'customers/bookmark'        => 'customers#index'
+    #get   'customers/bookmark'        => 'customers#bookmark'
 
-    # 時間の都合で中止
-    # post 'posts/confirm' => 'posts#confirm'
+    # post 'posts/confirm' => 'posts#confirm' => 中止
 
     # 投稿にコメント、ブックマークを行うため親子関係(ネスト)
     resources :posts, only: [:new, :create, :index, :show, :edit, :update] do
       resources :post_comments, only: [:create, :destroy]
-      resource :bookmarks, only: [:index, :create, :destroy]
+      resource :bookmarks, only: [:create, :destroy]
     end
   end
 

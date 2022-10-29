@@ -1,9 +1,9 @@
 class Public::BookmarksController < ApplicationController
   before_action :authenticate_customer!
 
-  def index
-    @bookmarks = Bookmark.all
-  end
+  #def index
+  #  @bookmarks = Bookmark.all
+  #end
 
   def create
     @post = Post.find(params[:post_id])
