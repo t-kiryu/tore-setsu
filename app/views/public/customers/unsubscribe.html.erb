@@ -1,10 +1,10 @@
-<div>
-  <div class="massage">
+<div class="inner text-center">
+  <div class="massage mt-5">
     <p><b>本当に退会してよろしいですか？</b></p></br>
     <p><b>会員登録情報やブックマーク履歴が閲覧できなくなります。</b></p>
   </div>
-  <div>
-    <%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary btn-sm" %>
-    <%= link_to "退会する", customers_withdrawal_path, method: :patch, data: {confirm: "本当に退会しますか？"}, class: "btn btn-danger btn-sm" %>
+  <div class="action mt-5">
+    <%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary btn-sm px-4 mr-4" %>
+    <%= link_to "退会する", customers_withdrawal_path, method: :patch, data: {confirm: "本当に退会しますか？"}, class: "btn btn-danger btn-sm px-4" %>
   </div>
 </div>
