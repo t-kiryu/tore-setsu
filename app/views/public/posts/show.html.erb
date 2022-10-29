@@ -17,7 +17,7 @@
             <%= @post.post_comments.count %>件
             <%= l @post.created_at %>
 
-            <span class=" btn-bookmark ml-3">
+            <span class="bookmark ml-3">
               <% if @post.bookmarked_by?(current_customer) %>
                 <%= link_to post_bookmarks_path(@post), method: :delete do %>
                   <i class="fas fa-star text-warning"></i>
@@ -57,7 +57,7 @@
               <% if post_comment.show_comment %>
                 <%= post_comment.comment %>
                 <% if post_comment.customer == current_customer %>
-                  <%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, class: "btn btn-danger btn-sm" %>
+                  <%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-sm" %>
                 <% end %>
               <% else %>
                 <%= "不適切なコメントのため管理者によって削除されました" %>
