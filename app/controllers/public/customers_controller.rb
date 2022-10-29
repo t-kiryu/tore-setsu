@@ -11,8 +11,11 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = current_customer
-    @customer.update(customer_params)
-    render :show
+    if @customer.update(customer_params)
+      redirect_to customers_my_page_path(current_customer.id)
+    else
+      render :show
+    end
   end
 
   # 退会確認画面
@@ -27,16 +30,15 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
 
-  #def bookmark
-  #  bookmarks = Bookmark.where(customer_id: current_customer.id).pluck(:post_id)
-  #  @bookmark_list = Post.find(bookmarks)
-  #end
-
+  def bookmark
+    bookmarks = Bookmark.where(customer_id: params[:id]).pluck(:post_id)
+    @bookmark_list = Post.find(bookmarks)
+  end
 
   private
 
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :user_name, :email, :is_deleted)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :user_name, :email)
   end
 
 end
