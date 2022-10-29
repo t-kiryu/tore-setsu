@@ -3,7 +3,7 @@
     <h2>新規スレッド投稿</h2>
   </div>
 
-  <%= render 'layouts/error_messages', model: @post %>
+  <%= render 'layouts/error_messages', resource: @post %>
 
   <%= form_with model: @post, url: posts_path, method: :post do |f| %>
     <div class="form">
