@@ -27,10 +27,10 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
 
-  def bookmark
-    bookmarks = Bookmark.where(customer_id: current_customer.id).pluck(:post_id)
-    @bookmark_list = Post.find(bookmarks)
-  end
+  #def bookmark
+  #  bookmarks = Bookmark.where(customer_id: current_customer.id).pluck(:post_id)
+  #  @bookmark_list = Post.find(bookmarks)
+  #end
 
 
   private
