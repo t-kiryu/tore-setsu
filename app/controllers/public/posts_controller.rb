@@ -23,9 +23,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(created_at: :desc)
-    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
-    @posts_paginate = Post.all.page(params[:page]).per(10)
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(10)
+    @post_tags = params[:tag_id].present? ? Tag.find(params[:tag_id]).post_tags : Post.all
   end
 
   def show
