@@ -1,7 +1,9 @@
 <div class="inner">
-  <div class="title mt-4">
+  <div class="title mt-5">
     <h2>新規スレッド投稿</h2>
   </div>
+
+  <%= render 'layouts/error_messages', model: @post %>
 
   <%= form_with model: @post, url: posts_path, method: :post do |f| %>
     <div class="form">
@@ -17,6 +19,7 @@
 
         <%# 検索タグ %>
         <div class="field mb-4">
+          <%= f.label :tags %>
           <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
             <div class="tag-list">
               <%= tag.label do %>
