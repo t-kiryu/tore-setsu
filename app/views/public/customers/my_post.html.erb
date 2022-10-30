@@ -1,0 +1,25 @@
+<div class="inner container mt-3 w-75">
+  <div class="title mt-5">
+    <h2><%= current_customer.user_name%> さんの投稿</h2>
+  </div>
+
+  <div class="form mt-5">
+    <div class="post-list mt-5">
+      <% @my_posts.each do |post| %>
+        <div class="post d-flex justify-content-start border-bottom mb-2">
+          <div class="post-image">
+            <%= image_tag post.get_image, size: '100x100' %>
+          </div>
+
+          <div class="post-infomation my-auto ml-4">
+            <h3><%= link_to post.title, post_path(post.id) %></h3>
+            <p class="comment">
+              <i class="fas fa-comment"></i>
+              <%= post.post_comments.count %>件
+              <%= l post.created_at %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

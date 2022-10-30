@@ -35,6 +35,10 @@ class Public::CustomersController < ApplicationController
     @bookmark_list = Post.find(bookmarks)
   end
 
+  def my_post
+    @my_posts = current_customer.posts
+  end
+
   private
 
   def customer_params

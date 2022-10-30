@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get   'customers/unsubscribe'     => 'customers#unsubscribe'
     patch 'customers/withdrawal'      => 'customers#withdrawal'
     get   'customers/:id/bookmark'    => 'customers#bookmark', as: 'bookmarks'
-
+    get   'customers/:id/my_post'     => 'customers#my_post', as: 'my_posts'
 
     # 投稿確認画面の実装中止（post 'posts/confirm' => 'posts#confirm'）
     # 投稿にコメント、ブックマークを行うため親子関係(ネスト)
