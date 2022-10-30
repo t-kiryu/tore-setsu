@@ -1,12 +1,12 @@
 <div class="inner container col-12 w-75">
   <div class="title mt-5">
-    <b><%= current_customer.user_name %>さんの登録内容編集</b>
+    <h3><%= current_customer.full_name %> さんの登録内容編集</h3>
   </div>
 
   <%= render 'layouts/error_messages', resource: @customer %>
 
   <%= form_with model: @customer, url: customers_infomation_path(@customer), method: :patch do |f| %>
-    <div class="form col-10 mt-3">
+    <div class="form col-10 mt-4">
       <table class="table table-borderless">
         <tbody>
           <tr>
