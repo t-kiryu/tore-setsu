@@ -26,4 +26,12 @@ class Post < ApplicationRecord
     bookmarks.where(customer_id: customer).exists?
   end
 
+  # キーワード検索：部分一致あり=>該当物の表示、部分一致なし=>全て表示
+  def self.search(search)
+    if search
+      where(['introduction LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
 end

@@ -24,7 +24,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(10)
+    # ページネーション、検索を追記
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(10).search(params[:search])
     @post_tags = params[:tag_id].present? ? Tag.find(params[:tag_id]).post_tags : Post.all
   end
 
