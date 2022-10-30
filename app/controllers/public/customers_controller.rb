@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to customers_my_page_path(current_customer.id)
     else
-      render :show
+      render :edit
     end
   end
 

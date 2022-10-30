@@ -2,13 +2,13 @@ class Public::PostCommentsController < ApplicationController
   before_action :authenticate_customer!
 
   def create
-    post = Post.find(params[:post_id])
-    comment = current_customer.post_comments.new(post_comment_params)
-    comment.post_id = post.id
-    if comment.save
-      redirect_to post_path(post)
+    @post = Post.find(params[:post_id])
+    @post_comment = current_customer.post_comments.new(post_comment_params)
+    @post_comment.post_id = @post.id
+    if @post_comment.save
+      redirect_to post_path(@post)
     else
-      redirect_to post_path(post)
+      render template: "public/posts/show"
     end
   end
 

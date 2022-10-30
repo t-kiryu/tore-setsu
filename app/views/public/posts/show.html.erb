@@ -3,11 +3,13 @@
     <h2>スレッド詳細</h2>
   </div>
 
+  <%= render 'layouts/error_messages', resource: @post_comment %>
+
   <div class="form mt-4">
     <div class="head-area">
       <div class="post d-flex justify-content-start border-bottom">
         <div class="post-image">
-          <%= image_tag @post.get_image %>
+          <%= image_tag @post.get_image, size: '100x100' %>
         </div>
 
         <div class="post-infomation my-auto ml-4">
@@ -30,7 +32,7 @@
             </span>
             <span class="btn-edit ml-3">
               <% if @post.customer == current_customer %>
-                <%= link_to "編集", edit_post_path, class: "btn btn-success btn-sm" %>
+                <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-success btn-sm" %>
               <% end %>
             </span>
           </p>
