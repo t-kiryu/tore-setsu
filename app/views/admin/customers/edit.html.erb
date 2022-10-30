@@ -3,6 +3,8 @@
     <h3><%= @customer.user_name %> さんの登録内容編集</h3>
   </div>
 
+  <%= render 'layouts/error_messages', resource: @customer %>
+
   <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
     <div class="form col-10 mt-3">
       <table class="table table-borderless">
