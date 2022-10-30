@@ -19,6 +19,12 @@ class Admin::CustomersController < ApplicationController
     render :show
   end
 
+  def bookmark
+    bookmarks = Bookmark.where(customer_id: params[:id]).pluck(:post_id)
+    @bookmark_list = Post.find(bookmarks)
+    @customer = Customer.find(params[:id])
+  end
+
   private
 
   def customer_params

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'posts#index'
+    get 'customers/:id/bookmark'    => 'customers#bookmark', as: 'bookmarks'
     resources :customers, only: [:index, :show, :edit, :update]
     resources :tags,      only: [:index, :create, :edit, :update, :destroy]
     resources :posts,     only: [:index, :show, :edit, :update, :delete] do
