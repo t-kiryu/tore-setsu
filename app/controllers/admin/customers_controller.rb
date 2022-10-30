@@ -25,6 +25,11 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
+  def my_post
+    @customer = Customer.find(params[:id])
+    @post_list = @customer.posts
+  end
+
   private
 
   def customer_params
