@@ -8,6 +8,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new
   end
 
+  #投稿確認画面 => 作成中止
   #def confirm
   #  @post = Post.new(post_params)
   #end
