@@ -8,6 +8,7 @@ class Public::PostCommentsController < ApplicationController
     if @post_comment.save
       redirect_to post_path(@post)
     else
+      # 他のコントローラにあるアクションへ遷移する時の記述
       render template: "public/posts/show"
     end
   end
