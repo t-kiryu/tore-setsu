@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'application', media: "all" %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,11 +16,11 @@
       <nav class="navbar navbar-expand-lg">
         <%# ホーム画面リンク %>
         <div>
-          <a class="navbar-brand" href="/">Tore_Setsu</a>
+          <a class="navbar-brand text-white" href="/">Tore_Setsu</a>
         </div>
 
         <%# ログイン時ユーザー名表示 %>
-        <div class="sign-up-user-name ml-5">
+        <div class="sign-up-user-name text-white ml-5">
           <% if customer_signed_in? %>
             <b><%= current_customer.user_name %> さんはログイン中です</b>
           <% end %>
@@ -28,20 +29,20 @@
         <%# リンク %>
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
-            <li class="nav-link btn btn-outline-light"><%= link_to "スレッド一覧", posts_path %></li>
-            <li class="nav-link btn btn-outline-light"><%= link_to "スレッド投稿", new_post_path %></li>
-            <li class="nav-link btn btn-outline-light"><%= link_to "マイページ", customers_my_page_path %></li>
-            <li class="nav-link btn btn-outline-light"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "スレッド一覧", posts_path %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "スレッド投稿", new_post_path %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "マイページ", customers_my_page_path %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
-            <li class="nav-link btn btn-outline-light"><%= link_to "スレッド一覧", admin_root_path %></li>
-            <li class="nav-link btn btn-outline-light"><%= link_to "会員一覧", admin_customers_path %></li>
-            <li class="nav-link btn btn-outline-light"><%= link_to "タグ一覧", admin_tags_path %></li>
-            <li class="nav-link btn btn-outline-light"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "スレッド一覧", admin_root_path %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "会員一覧", admin_customers_path %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "タグ一覧", admin_tags_path %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
           <% else %>
-            <li class="nav-link btn btn-outline-light"><%= link_to "初めての方", about_path %></li>
-            <li class="nav-link btn btn-outline-light"><%= link_to "スレッド一覧", posts_path %></li>
-            <li class="nav-link btn btn-outline-light"><%= link_to "ログイン", new_customer_session_path %></li>
-            <li class="nav-link btn btn-outline-light"><%= link_to "新規登録", new_customer_registration_path %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "初めての方", about_path %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "スレッド一覧", posts_path %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "ログイン", new_customer_session_path %></li>
+            <li class="nav-link btn btn-outline-light ml-2"><%= link_to "新規登録", new_customer_registration_path %></li>
           <% end %>
         </ul>
       </nav>
