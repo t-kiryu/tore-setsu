@@ -1,4 +1,4 @@
-<div class="inner container mt-3 w-75">
+<div class="inner container mt-3">
   <div class="title mt-5">
     <h2>スレッド一覧</h2>
   </div>
@@ -20,7 +20,7 @@
         <%# キーワード検索　%>
         <%= form_tag(posts_path, :method => "get") do %>
           <%= text_field_tag :search %>
-          <%= submit_tag "検索！" ,:introduction => nil ,class: "button is-info"%>
+          <%= submit_tag "検索" ,:introduction => nil ,class: "button is-info"%>
         <% end %>
       </span>
     </div>
