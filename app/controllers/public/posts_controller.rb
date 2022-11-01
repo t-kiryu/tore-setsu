@@ -24,9 +24,20 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    # ページネーション、検索を追記
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(10).search(params[:search])
-    @post_tags = params[:tag_id].present? ? Tag.find(params[:tag_id]).post_tags : Post.all
+    # 最初のpostsを上書きして処理を進めていく
+    # タグ検索が優先され、キーワードあればキーワード検索
+    @posts= Post.all.page(params[:page]).per(10)
+    @tags = Tag.all
+    if params[:search].present?
+      @posts = @posts.where("introduction LIKE ? ",'%' + params[:search] + '%').page(params[:page]).per(10)
+    end
+    # タグ検索
+    if params[:tag_id].present?
+      @posts = Tag.find(params[:tag_id]).posts.page(params[:page]).per(10) if TagList.where(tag_id:params[:tag_id]).present?
+      # (1)tag.find(params[:tag_id])                         => (3)で取得したタグ1つを検索
+      # (2)post.page(params[:page]).per(10)                  => ページネーション
+      # (3)if TagList.where(tag_id:params[:tag_id]).present? => (1)のparams[:tag_id]に入れるtag_idを取得
+    end
   end
 
   def show
