@@ -20,12 +20,36 @@
   box-sizing: border-box;
 }
 
+a {
+  color: #fff;
+}
+
 .navbar {
   background-color: #BFC5D5;
 }
 
 li {
-  border
+  border: 1px solid #333;
+  color: white;
+}
+
+li:hover {
+  cursor: pointer;
+  background-color: white;
+}
+
+.about-card-title {
+  background-color: #eaffff;
+}
+
+.posts-card-title {
+  background-color: #eaeaff;
+}
+
+.post-introduction {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 footer {

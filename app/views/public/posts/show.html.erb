@@ -30,7 +30,7 @@
                 <% end %>
               <% end %>
             </span>
-            <span class="btn-edit ml-3">
+            <span class="action ml-3">
               <% if @post.customer == current_customer %>
                 <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-success btn-sm" %>
               <% end %>
