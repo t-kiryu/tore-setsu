@@ -25,6 +25,7 @@
     </table>
 
     <div class="action text-center mt-4">
+      <%= link_to "スレッド投稿", new_post_path, class: "btn btn-primary btn-sm ml-1 px-4" %>
       <%= link_to "投稿履歴一覧", my_posts_path(@customer.id), class: "btn btn-primary btn-sm ml-1 px-4" %>
       <%= link_to "ブックマーク一覧", bookmarks_path(@customer.id), class: "btn btn-primary btn-sm ml-1 px-4" %>
       <%= link_to "編集", customers_infomation_edit_path, class: "btn btn-success btn-sm  ml-1 px-4" %>
