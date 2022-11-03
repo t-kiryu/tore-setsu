@@ -17,6 +17,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     if @post.save
+      flash[:notice] = "投稿を保存しました"
       redirect_to post_path(@post.id)
     else
       render :new
@@ -51,6 +52,7 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
+      flash[:notice] = "変更を保存しました"
       redirect_to post_path(@post.id)
     else
       render :edit
