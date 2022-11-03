@@ -22,10 +22,12 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   def after_sign_in_path_for(resource)
+    flash[:notice] = "ご利用ありがとうございます"
     customers_my_page_path
   end
 
   def after_sign_out_path_for(resource)
+    flash[:notice] = "またのご利用をお待ちしております"
     root_path
   end
 
@@ -36,7 +38,7 @@ class Public::SessionsController < Devise::SessionsController
     @customer = Customer.find_by(email: params[:customer][:email])
     return if !@customer
     if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted == true
-      flash[:error] = "**退会済み情報のためご使用になれません**"
+      flash[:error] = "退会済み情報のためご利用になれません"
       redirect_to new_customer_registration_path
     end
   end
