@@ -5,6 +5,7 @@ class Public::BookmarksController < ApplicationController
     @post = Post.find(params[:post_id])
     bookmark = @post.bookmarks.new(customer_id: current_customer.id)
     if bookmark.save
+      flash[:notice] = "ブックマークに登録しました"
       redirect_to request.referer
     else
       redirect_to request.referer
@@ -16,6 +17,7 @@ class Public::BookmarksController < ApplicationController
     bookmark = @post.bookmarks.find_by(customer_id: current_customer.id)
     if bookmark.present?
       bookmark.destroy
+      flash[:notice] = "ブックマークを解除しました"
       redirect_to request.referer
     else
       redirect_to request.referer

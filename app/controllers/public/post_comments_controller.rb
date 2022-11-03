@@ -6,6 +6,7 @@ class Public::PostCommentsController < ApplicationController
     @post_comment = current_customer.post_comments.new(post_comment_params)
     @post_comment.post_id = @post.id
     if @post_comment.save
+      flash[:notice] = "コメントを保存しました"
       redirect_to post_path(@post)
     else
       # 他のコントローラにあるアクションへ遷移する時の記述
@@ -15,6 +16,7 @@ class Public::PostCommentsController < ApplicationController
 
   def destroy
     PostComment.find(params[:id]).destroy
+    flash[:notice] = "コメントを削除しました"
     redirect_to post_path(params[:post_id])
   end
 

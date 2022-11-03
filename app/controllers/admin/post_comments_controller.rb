@@ -10,6 +10,7 @@ class Admin::PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @post_comment = PostComment.find(params[:id])
     @post_comment.update(post_comment_params)
+    flash[:notice] = "コメント表示を変更しました"
     redirect_to admin_post_path(params[:post_id])
   end
 
