@@ -28,8 +28,8 @@ a {
   background-color: #BFC5D5;
 }
 
-li {
-  border: 1px solid #333;
+.nav-link {
+  border: 1px solid #000000;
   color: white;
 }
 
