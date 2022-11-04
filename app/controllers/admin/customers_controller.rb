@@ -31,7 +31,7 @@ class Admin::CustomersController < ApplicationController
 
   def my_post
     @customer = Customer.find(params[:id])
-    @customer_post = @customer.posts.page(params[:page]).per(2)
+    @customer_post = @customer.posts.page(params[:page]).per(10)
   end
 
   private
