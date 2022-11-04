@@ -28,16 +28,6 @@ a {
   background-color: #BFC5D5;
 }
 
-.nav-link {
-  border: 1px solid #000000;
-  color: white;
-}
-
-li:hover {
-  cursor: pointer;
-  background-color: white;
-}
-
 .about-card-title {
   background-color: #eaffff;
 }
@@ -50,6 +40,20 @@ li:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.pagination{
+justify-content: center;
+}
+
+.page{
+  margin: 0px 7px 0px 7px;
+  width: 5px;
+  padding-left: 3px;
+}
+
+.next , .last{
+  padding-left: 7px;
 }
 
 footer {
