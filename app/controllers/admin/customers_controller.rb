@@ -31,7 +31,7 @@ class Admin::CustomersController < ApplicationController
 
   def my_post
     @customer = Customer.find(params[:id])
-    @post_list = @customer.posts
+    @customer_post = @customer.posts
   end
 
   private
