@@ -53,7 +53,7 @@ justify-content: center;
   padding-left: 3px;
 }
 
-.next , .last{
+.next , .last, .first, .prev{
   padding-left: 7px;
 }
 
