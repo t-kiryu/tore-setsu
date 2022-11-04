@@ -38,7 +38,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def my_post
-    @my_posts = current_customer.posts
+    @my_posts = current_customer.posts.page(params[:page]).per(2)
   end
 
   private
