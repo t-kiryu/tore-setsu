@@ -25,7 +25,7 @@ class Admin::CustomersController < ApplicationController
 
   def bookmark
     bookmarks = Bookmark.where(customer_id: params[:id]).pluck(:post_id)
-    @bookmark_list = Post.find(bookmarks)
+    @bookmark_list = Post.where(id: bookmarks).page(params[:page]).per(10)
     @customer = Customer.find(params[:id])
   end
 
