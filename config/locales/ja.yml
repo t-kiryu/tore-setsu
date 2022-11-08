@@ -1,4 +1,9 @@
 ja:
+  #seedファイル読込時のエラーに対応
+  activerecord:
+  errors:
+    messages:
+      record_invalid: "バリデーションに失敗しました: %{errors}"
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
