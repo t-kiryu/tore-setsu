@@ -27,7 +27,7 @@ class Public::PostsController < ApplicationController
   def index
     # @postsを上書きして処理進行
     # タグ検索が優先され、キーワードあればキーワード検索
-    @posts= Post.all.page(params[:page]).per(10)
+    @posts= Post.all.page(params[:page]).per(10).order(created_at: :desc)
     @tags = Tag.all
     if params[:search].present?
       @posts = @posts.where("introduction LIKE ? ",'%' + params[:search] + '%').page(params[:page]).per(10)
