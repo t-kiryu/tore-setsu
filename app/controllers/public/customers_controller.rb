@@ -34,12 +34,12 @@ class Public::CustomersController < ApplicationController
 
   def bookmark
     bookmarks = Bookmark.where(customer_id: params[:id]).pluck(:post_id)
-    @bookmark_list = Post.where(id: bookmarks).page(params[:page]).per(10)
+    @bookmark_list = Post.where(id: bookmarks).page(params[:page]).per(10).order(created_at: :desc)
   end
 
 
   def my_post
-    @my_posts = current_customer.posts.page(params[:page]).per(10)
+    @my_posts = current_customer.posts.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   private
