@@ -6,7 +6,7 @@
   <div class="form mt-5">
     <%= form_with model: [@post, @post_comment], url: admin_post_post_comment_path do |f| %>
       <div clas="comment">
-        <%= f.label :コメント内容 %></br>
+        <%= f.label :コメント内容 %><br>
         <%= f.text_area :comment, rows: 5, class: "form-control w-50" %>
       </div>
 
